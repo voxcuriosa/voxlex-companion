@@ -1,0 +1,11 @@
+{
+  "name": "voxlex-companion",
+  "version": "1.0.0",
+  "description": "VoxLex Companion - Universell lese- og ordforklaringsutvidelse (Manifest V3) for videregående skole",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-dictionary.cjs",
+    "test": "node scripts/test-offline-lookup.cjs",
+    "pack": "rm -f VoxLex-Companion-v1.0.0.zip && zip -r -q VoxLex-Companion-v1.0.0.zip manifest.json background content data/ordbok icons/icon-16.png icons/icon-32.png icons/icon-48.png icons/icon-128.png -x '*.DS_Store'"
+  }
+}

@@ -1,0 +1,940 @@
+{
+  "entries": {
+    "abstrakt": {
+      "d": "Noe som er tenkt eller teoretisk, og som man ikke kan ta og føle på fysisk. Motsatt av konkret.",
+      "s": ["teoretisk", "uhåndgripelig", "begrepsmessig", "idébasert"]
+    },
+    "adferd": {
+      "d": "Måten en person, gruppe eller et dyr oppfører seg og handler på i ulike situasjoner.",
+      "s": ["oppførsel", "handlemåte", "væremåte", "fremferd"]
+    },
+    "allmenn": {
+      "d": "Noe som gjelder for alle eller de fleste i samfunnet, ikke bare for noen få.",
+      "s": ["offentlig", "felles", "generell", "vanlig"]
+    },
+    "alternativ": {
+      "d": "En annen mulighet eller løsning man kan velge mellom.",
+      "s": ["valgmulighet", "mulighet", "utvei", "løsning"]
+    },
+    "ambivalent": {
+      "d": "Å ha delte eller motstridende følelser og tanker om én og samme sak.",
+      "s": ["tvetydig", "usikker", "delt", "vaklende"]
+    },
+    "analyse": {
+      "d": "En grundig undersøkelse der man deler noe opp i mindre deler for å forstå sammenhengen.",
+      "s": ["undersøkelse", "gransking", "kartlegging", "tolkning"]
+    },
+    "analysere": {
+      "d": "Å undersøke noe grundig ved å se på enkeltdele og hvordan de henger sammen.",
+      "s": ["undersøke", "granske", "vurdere", "kartlegge"]
+    },
+    "anerkjenne": {
+      "d": "Å godta, respektere eller vise verdsettelse for noen eller noe.",
+      "s": ["godkjenne", "respektere", "verdsette", "akseptere"]
+    },
+    "ansvar": {
+      "d": "Plikt til å sørge for at noe blir gjort skikkelig, og til å stå til rette for egne valg.",
+      "s": ["forpliktelse", "plikt", "skyld", "oppgave"]
+    },
+    "arbeid": {
+      "d": "Virksomhet eller innsats man gjør for å skape noe, løse en oppgave eller tjene til livets opphold.",
+      "s": ["jobb", "yrke", "innsats", "virke"]
+    },
+    "argument": {
+      "d": "En begrunnelse eller påstand som brukes for å støtte eller motbevise et synspunkt.",
+      "s": ["begrunnelse", "bevis", "holdepunkt", "synspunkt"]
+    },
+    "art": {
+      "d": "En gruppe levende organismer med felles kjennetegn som kan få fruktbart avkom sammen.",
+      "s": ["dyreart", "planteart", "type", "slag"]
+    },
+    "autonomi": {
+      "d": "Selvstyre og rett til å ta egne beslutninger uten innblanding utenfra.",
+      "s": ["selvstyre", "uavhengighet", "selvstendighet", "frihet"]
+    },
+    "avhengig": {
+      "d": "Å trenge noe eller noen for å fungere, eller å være styrt av en bestemt faktor.",
+      "s": ["bundet", "prisgitt", "betinget", "avhengende"]
+    },
+    "avtale": {
+      "d": "En muntlig eller skriftlig enighet mellom to eller flere parter om hva som skal gjelde.",
+      "s": ["kontrakt", "overenskomst", "forlik", "pakt"]
+    },
+    "bakgrunn": {
+      "d": "Forhold, historie eller årsaker som ligger bak og forklarer en hendelse eller situasjon.",
+      "s": ["forhistorie", "årsak", "utgangspunkt", "ramme"]
+    },
+    "begrep": {
+      "d": "Et ord eller uttrykk som samler bestemte kjennetegn ved et fenomen eller en idé.",
+      "s": ["uttrykk", "term", "idé", "forestilling"]
+    },
+    "begrunne": {
+      "d": "Å forklare hvorfor man mener eller gjør noe ved å vise til argumenter og fakta.",
+      "s": ["forklare", "underbygge", "argumentere", "rettferdiggjøre"]
+    },
+    "betydning": {
+      "d": "Hva et ord eller en handling innebærer, eller hvor viktig noe er.",
+      "s": ["mening", "innhold", "viktighet", "verdi"]
+    },
+    "bevaring": {
+      "d": "Det å ta vare på og beskytte noe slik at det ikke blir ødelagt eller går tapt.",
+      "s": ["vern", "beskyttelse", "sikring", "opprettholdelse"]
+    },
+    "bidra": {
+      "d": "Å være med på å skape et resultat eller hjelpe til med en felles oppgave.",
+      "s": ["medvirke", "hjelpe", "støtte", "tilføre"]
+    },
+    "biologi": {
+      "d": "Læren om den levende naturen, celler, organismer og samspillet mellom arter.",
+      "s": ["naturfag", "livslære", "økologi", "organismer"]
+    },
+    "borger": {
+      "d": "En innbygger i en stat eller et samfunn med bestemte rettigheter og plikter.",
+      "s": ["innbygger", "samfunnsborger", "statsborger", "medborger"]
+    },
+    "bærekraft": {
+      "d": "Evnen til å dekke dagens behov uten å ødelegge mulighetene for kommende generasjoner.",
+      "s": ["levestyrke", "varighet", "miljøbalanse", "langsiktighet"]
+    },
+    "bærekraftig": {
+      "d": "Noe som tar vare på miljø, økonomi og sosiale forhold slik at det kan vare over lang tid.",
+      "s": ["miljøvennlig", "langsiktig", "levedyktig", "ansvarlig"]
+    },
+    "celle": {
+      "d": "Den minste levende byggesteinen i alle planter, dyr og mennesker, eller en enhet som produserer strøm.",
+      "s": ["byggestein", "enhet", "organismeenhet", "strømcelle"]
+    },
+    "debatt": {
+      "d": "En offentlig eller saklig diskusjon der ulike meninger brytes mot hverandre.",
+      "s": ["diskusjon", "ordskifte", "meningsutveksling", "drøfting"]
+    },
+    "definisjon": {
+      "d": "En presis forklaring av hva et ord eller begrep betyr.",
+      "s": ["begrepsforklaring", "betydning", "avgrensning", "forklaring"]
+    },
+    "deltakelse": {
+      "d": "Det å være aktivt med i en aktivitet, en gruppe eller i samfunnslivet.",
+      "s": ["medvirkning", "innsats", "engasjement", "inkludering"]
+    },
+    "demokrati": {
+      "d": "En styreform der makten ligger hos folket gjennom frie valg, ytringsfrihet og rettssikkerhet.",
+      "s": ["folkestyre", "folkemakt", "flertallsstyre", "medbestemmelse"]
+    },
+    "demokratisk": {
+      "d": "Noe som bygger på folkestyre, likeverd, åpen debatt og frie valg.",
+      "s": ["folkevalgt", "inkluderende", "rettferdig", "medbestemmende"]
+    },
+    "digital": {
+      "d": "Noe som bruker datateknologi, elektroniske signaler eller internett.",
+      "s": ["elektronisk", "databasert", "nettbasert", "teknologisk"]
+    },
+    "diktatur": {
+      "d": "En styreform der én person eller en liten gruppe har all makt uten frie valg.",
+      "s": ["enevelde", "autokrati", "tvangsstyre", "undertrykkelse"]
+    },
+    "dilemma": {
+      "d": "En vanskelig valgsituasjon der alle løsninger har uheldige sider.",
+      "s": ["valgets kval", "knipe", "konflikt", "vanskelig valg"]
+    },
+    "diskriminering": {
+      "d": "Usaklig eller urettferdig forskjellsbehandling av mennesker på grunn av bakgrunn, kjønn eller tro.",
+      "s": ["forskjellsbehandling", "utestenging", "urettferdighet", "undertrykking"]
+    },
+    "drøfte": {
+      "d": "Å belyse en sak fra flere sider ved å veie argumenter for og imot før man konkluderer.",
+      "s": ["diskutere", "vurdere", "veie", "undersøke"]
+    },
+    "drøfting": {
+      "d": "En gjennomgang av en problemstilling der man ser på argumenter fra ulike synsvinkler.",
+      "s": ["diskusjon", "vurdering", "avveining", "analyse"]
+    },
+    "effekt": {
+      "d": "Virkningen eller resultatet av en handling, et tiltak eller en prosess.",
+      "s": ["virkning", "resultat", "følge", "utslag"]
+    },
+    "effektiv": {
+      "d": "Noe som gir gode resultater raskt og uten å sløse med tid eller ressurser.",
+      "s": ["virkningsfull", "målrettet", "produktiv", "nyttig"]
+    },
+    "egenskap": {
+      "d": "Et særkpreg, kjennetegn eller en kvalitet ved en person, ting eller et stoff.",
+      "s": ["kjennetegn", "trekk", "kvalitet", "karakteristikk"]
+    },
+    "eksamen": {
+      "d": "En avsluttende prøve som måler hva en elev eller student har lært i et fag.",
+      "s": ["prøve", "sluttvurdering", "test", "fagprøve"]
+    },
+    "eksempel": {
+      "d": "Et konkret tilfelle som brukes for å forklare eller illustrere en generell regel eller påstand.",
+      "s": ["illustrasjon", "tilfelle", "forbilde", "mønster"]
+    },
+    "empati": {
+      "d": "Evnen til å sette seg inn i og forstå hvordan et annet menneske har det.",
+      "s": ["innlevelse", "medfølelse", "forståelse", "omtanke"]
+    },
+    "endring": {
+      "d": "Det at noe forandrer seg eller går over i en ny tilstand.",
+      "s": ["forandring", "omstilling", "utvikling", "skifte"]
+    },
+    "energi": {
+      "d": "Evne til å utføre arbeid eller skape varme, lys og bevegelse.",
+      "s": ["kraft", "strøm", "drivkraft", "styrke"]
+    },
+    "erfaring": {
+      "d": "Kunnskap og innsikt man har fått gjennom det man selv har opplevd og gjort.",
+      "s": ["opplevelse", "praksis", "lærdom", "innsikt"]
+    },
+    "etablere": {
+      "d": "Å opprette, grunnlegge eller få i stand noe nytt og varig.",
+      "s": ["opprette", "grunnlegge", "starte", "bygge opp"]
+    },
+    "etikk": {
+      "d": "Læren om rett og galt, og hvilke verdier og normer som bør styre handlingene våre.",
+      "s": ["morallære", "verdilære", "normer", "rettferdighet"]
+    },
+    "etisk": {
+      "d": "Noe som handler om moral, rett og galt, og hva som er riktig oppførsel.",
+      "s": ["moralsk", "ansvarlig", "rettferdig", "verdimessig"]
+    },
+    "evaluere": {
+      "d": "Å vurdere verdien, kvaliteten eller resultatet av et arbeid eller tiltak.",
+      "s": ["vurdere", "bedømme", "måle", "gjennomgå"]
+    },
+    "fag": {
+      "d": "Et avgrenset kunnskapsområde eller emne man undervises i på skolen.",
+      "s": ["emne", "lærefag", "område", "felt"]
+    },
+    "faktor": {
+      "d": "En omstendighet eller årsak som er med på å påvirke et resultat.",
+      "s": ["årsak", "element", "omstendighet", "drivkraft"]
+    },
+    "fellesskap": {
+      "d": "En gruppe mennesker som hører sammen, deler interesser eller støtter hverandre.",
+      "s": ["samhold", "gruppe", "samfunn", "tilhørighet"]
+    },
+    "fenomen": {
+      "d": "En hendelse eller et forhold i naturen eller samfunnet som kan observeres og undersøkes.",
+      "s": ["foreteelse", "hendelse", "tilfelle", "observasjon"]
+    },
+    "flertall": {
+      "d": "Mer enn halvparten av stemmene eller medlemmene i en gruppe.",
+      "s": ["majoritet", "overvekt", "hoveddel", "størstedel"]
+    },
+    "folk": {
+      "d": "Menneskene eller innbyggerne som bor i et land eller tilhører et fellesskap.",
+      "s": ["befolkning", "innbyggere", "mennesker", "nasjon"]
+    },
+    "folkestyre": {
+      "d": "Styreform der folket bestemmer gjennom frie valg og folkevalgte representanter.",
+      "s": ["demokrati", "folkemakt", "medbestemmelse", "selvstyre"]
+    },
+    "forandring": {
+      "d": "Det at noe blir annerledes enn det var før.",
+      "s": ["endring", "skifte", "omlegging", "utvikling"]
+    },
+    "forbedre": {
+      "d": "Å gjøre noe bedre, mer effektivt eller høyere i kvalitet.",
+      "s": ["utvikle", "styrke", "oppgradere", "foredle"]
+    },
+    "forbruk": {
+      "d": "Mengden varer, ressurser eller energi som brukes opp av mennesker eller bedrifter.",
+      "s": ["konsum", "bruk", "ressursbruk", "etterspørsel"]
+    },
+    "fordel": {
+      "d": "Noe som gir nytte, gevinst eller et fortrinn i en situasjon.",
+      "s": ["gevinst", "nytte", "fortrinn", "pluss"]
+    },
+    "fordeling": {
+      "d": "Måten goder, ressurser, oppgaver eller makt deles mellom ulike grupper på.",
+      "s": ["deling", "utdeling", "spredning", "allokering"]
+    },
+    "forebygge": {
+      "d": "Å sette inn tiltak på forhånd for å hindre at et problem eller en skade oppstår.",
+      "s": ["forhindre", "avverge", "motvirke", "sikre"]
+    },
+    "forenkle": {
+      "d": "Å gjøre noe lettere å forstå eller enklere å gjennomføre.",
+      "s": ["lette", "klargjøre", "forkorte", "effektivisere"]
+    },
+    "forhold": {
+      "d": "Sammenhengen mellom to eller flere ting, eller omstendighetene man lever under.",
+      "s": ["relasjon", "sammenheng", "omstendighet", "vilkår"]
+    },
+    "forklare": {
+      "d": "Å gjøre noe tydelig og forståelig for andre.",
+      "s": ["utdype", "beskrive", "klargjøre", "belyse"]
+    },
+    "forklaring": {
+      "d": "En uttalelse eller gjennomgang som gjør et ord, et fenomen eller en årsak forståelig.",
+      "s": ["beskrivelse", "utdyping", "redegjørelse", "tolkning"]
+    },
+    "form": {
+      "d": "Oppbygning, utseende eller måten en tekst eller gjenstand er utformet på.",
+      "s": ["struktur", "oppbygning", "utforming", "mønster"]
+    },
+    "formål": {
+      "d": "Målet eller hensikten man ønsker å oppnå med en handling eller en tekst.",
+      "s": ["hensikt", "mål", "mening", "intensjon"]
+    },
+    "forskjell": {
+      "d": "Det som skiller to eller flere ting fra hverandre.",
+      "s": ["ulikhet", "avvik", "kontrast", "skille"]
+    },
+    "forskning": {
+      "d": "Systematisk arbeid for å skaffe ny og pålitelig kunnskap.",
+      "s": ["vitenskap", "undersøkelse", "studie", "gransking"]
+    },
+    "forslag": {
+      "d": "En idé eller plan som legges frem for at andre skal vurdere eller vedta den.",
+      "s": ["utkast", "initiativ", "innspill", "idé"]
+    },
+    "forstå": {
+      "d": "Å oppfatte meningen eller sammenhengen i noe.",
+      "s": ["begripe", "innse", "oppfatte", "skjønne"]
+    },
+    "forståelse": {
+      "d": "Innsikt i hva noe betyr, eller evne til å vise omtanke for andres situasjon.",
+      "s": ["innsikt", "oppfatning", "empati", "kunnskap"]
+    },
+    "forutsetning": {
+      "d": "Et vilkår som må være på plass for at noe annet skal kunne skje.",
+      "s": ["betingelse", "vilkår", "grunnlag", "krav"]
+    },
+    "fotosyntese": {
+      "d": "Prosessen der grønne planter bruker sollys, vann og karbondioksid til å lage druesukker og oksygen.",
+      "s": ["energiomdanning", "plantefornyelse", "lysomdanning", "karbonbinding"]
+    },
+    "frihet": {
+      "d": "Muligheten til å bestemme over eget liv og uttrykke meninger uten urimelig tvang.",
+      "s": ["uavhengighet", "selvstendighet", "handlefrihet", "autonomi"]
+    },
+    "funksjon": {
+      "d": "Oppgaven eller rollen noe har i en større sammenheng.",
+      "s": ["oppgave", "rolle", "virkemåte", "formål"]
+    },
+    "følge": {
+      "d": "Et resultat eller en konsekvens av noe som har skjedd tidligere.",
+      "s": ["konsekvens", "resultat", "virkning", "ettervirkning"]
+    },
+    "generell": {
+      "d": "Noe som gjelder i de fleste tilfeller og ikke bare i enkeltsituasjoner.",
+      "s": ["allmenn", "overordnet", "vanlig", "helhetlig"]
+    },
+    "gjennomføre": {
+      "d": "Å sette en plan ut i livet og fullføre en oppgave.",
+      "s": ["utføre", "fullføre", "realisere", "iverksette"]
+    },
+    "global": {
+      "d": "Noe som gjelder for hele verden eller krysser landegrenser.",
+      "s": ["verdensomspennende", "internasjonal", "planetarisk", "overgrenset"]
+    },
+    "globalisering": {
+      "d": "Utviklingen der land, økonomi, kultur og mennesker knyttes stadig tettere sammen på tvers av kloden.",
+      "s": ["internasjonalisering", "verdenshandel", "sammenveving", "kulturutveksling"]
+    },
+    "grunnlag": {
+      "d": "Fundamentet eller utgangspunktet som noe annet bygger på.",
+      "s": ["fundament", "basis", "utgangspunkt", "forutsetning"]
+    },
+    "grunnleggende": {
+      "d": "Noe som er helt nødvendig og danner selve kjernen i en sak.",
+      "s": ["fundamental", "viktig", "sentral", "avgjørende"]
+    },
+    "grunnlov": {
+      "d": "Den øverste loven i et land som fastsetter styreform, maktfordeling og borgernes menneskerettigheter.",
+      "s": ["forfatning", "statsforfatning", "hovedlov", "konstitusjon"]
+    },
+    "handling": {
+      "d": "Noe man gjør bevisst, eller selve hendelsesforløpet i en fortelling eller et drama.",
+      "s": ["gjerning", "tiltak", "hendelsesforløp", "aktivitet"]
+    },
+    "helhet": {
+      "d": "Alle delene av noe sett under ett som en komplett enhet.",
+      "s": ["totalitet", "sammenheng", "enhet", "fellesskap"]
+    },
+    "hensikt": {
+      "d": "Målet eller meningen bak det noen sier, skriver eller gjør.",
+      "s": ["formål", "intensjon", "mål", "beveggrunn"]
+    },
+    "historie": {
+      "d": "Fortellingen om og utforskningen av fortiden og hvordan samfunn har utviklet seg.",
+      "s": ["fortid", "samfunnsutvikling", "fortelling", "kulturarv"]
+    },
+    "holdning": {
+      "d": "En varig innstilling eller verdivurdering man har overfor et tema eller andre mennesker.",
+      "s": ["innstilling", "synspunkt", "oppfatning", "verdisyn"]
+    },
+    "hovedsak": {
+      "d": "Det viktigste poenget eller kjernen i en sak.",
+      "s": ["kjernepunkt", "hovedpoeng", "essens", "sentrum"]
+    },
+    "hypotese": {
+      "d": "En begrunnet antakelse eller forklaring som kan testes gjennom undersøkelser og forsøk.",
+      "s": ["antakelse", "teori", "påstand", "arbeidsteori"]
+    },
+    "identitet": {
+      "d": "Opplevelsen av hvem man er som person og hvilke fellesskap man hører til.",
+      "s": ["selvbilde", "egenart", "tilhørighet", "personlighet"]
+    },
+    "ideologi": {
+      "d": "Et sammenhengende sett med ideer og verdier om hvordan samfunnet bør styres og organiseres.",
+      "s": ["samfunnssyn", "tankesystem", "verdigrunnlag", "politisk retning"]
+    },
+    "industrialisering": {
+      "d": "Overgangen fra jordbrukssamfunn til et samfunn basert på fabrikker, maskiner og masseproduksjon.",
+      "s": ["modernisering", "maskinalder", "fabrikkdrift", "teknologiutvikling"]
+    },
+    "individ": {
+      "d": "En enkeltperson eller et enkeltstående levende vesen.",
+      "s": ["enkeltmenneske", "person", "ener", "enkeltindivid"]
+    },
+    "inflasjon": {
+      "d": "Generell prisstigning i økonomien som fører til at pengene mister kjøpekraft.",
+      "s": ["prisstigning", "verdifall", "dyrtid", "prisvekst"]
+    },
+    "informasjon": {
+      "d": "Opplysninger, fakta eller meldinger som gir kunnskap om et emne.",
+      "s": ["opplysning", "kunnskap", "fakta", "melding"]
+    },
+    "inkludering": {
+      "d": "Det å sørge for at alle blir tatt med og får delta som likeverdige medlemmer i fellesskapet.",
+      "s": ["deltakelse", "integrering", "fellesskap", "likeverd"]
+    },
+    "innhold": {
+      "d": "Det en tekst, tale eller beholder rommer av temaer, tanker eller gjenstander.",
+      "s": ["budskap", "tema", "substans", "mening"]
+    },
+    "innsikt": {
+      "d": "Dyp og grundig forståelse av hvordan noe henger sammen.",
+      "s": ["forståelse", "kunnskap", "erkjennelse", "overblikk"]
+    },
+    "integrering": {
+      "d": "Prosessen der nye innbyggere eller deler blir en naturlig del av et større fellesskap.",
+      "s": ["inkludering", "innlemmelse", "samordning", "tilpasning"]
+    },
+    "ironi": {
+      "d": "Et språklig virkemiddel der man sier det motsatte av det man egentlig mener, slik at leseren forstår undertonen.",
+      "s": ["dobbelthet", "underfundighet", "spott", "satire"]
+    },
+    "kilde": {
+      "d": "Opphavet til informasjon, kunnskap, energi eller vann.",
+      "s": ["opphav", "utspring", "grunnlag", "referanse"]
+    },
+    "kildekritikk": {
+      "d": "Metoden for å vurdere om en informasjonskilde er pålitelig, relevant og objektiv.",
+      "s": ["kildevurdering", "faktasjekk", "pålitelighetssjekk", "kritisk lesing"]
+    },
+    "klima": {
+      "d": "Det gjennomsnittlige været på et sted eller på jorda målt over lang tid, vanligvis minst 30 år.",
+      "s": ["værlag", "temperaturforhold", "atmosfæreforhold", "miljøtilstand"]
+    },
+    "kompromiss": {
+      "d": "En avtale eller løsning der begge parter firer litt på kravene sine for å bli enige.",
+      "s": ["forlik", "mellomløsning", "enighet", "avtale"]
+    },
+    "kommunikasjon": {
+      "d": "Utveksling av informasjon, tanker og følelser mellom mennesker gjennom språk, tekst eller tegn.",
+      "s": ["samhandling", "formidling", "dialog", "utveksling"]
+    },
+    "konflikt": {
+      "d": "En uenighet, motsetning eller strid mellom personer, grupper eller land.",
+      "s": ["strid", "uenighet", "motsetning", "sammenstøt"]
+    },
+    "konklusjon": {
+      "d": "Sluttresultatet eller oppsummeringen man kommer frem til etter en drøfting eller undersøkelse.",
+      "s": ["slutning", "resultat", "oppsummering", "utfall"]
+    },
+    "konkret": {
+      "d": "Noe håndfast, tydelig og virkelighetsnært som kan pekes på eller måles.",
+      "s": ["håndfast", "tydelig", "spesifikk", "virkelig"]
+    },
+    "konsekvens": {
+      "d": "Resultatet eller følgen som oppstår på grunn av en bestemt handling eller hendelse.",
+      "s": ["følge", "virkning", "resultat", "utfall"]
+    },
+    "kontekst": {
+      "d": "Sammenhengen eller omgivelsene som et ord, en tekst eller en hendelse inngår i.",
+      "s": ["sammenheng", "ramme", "omgivelser", "bakgrunn"]
+    },
+    "kontrast": {
+      "d": "En tydelig motsetning som fremhever forskjellen mellom to ting.",
+      "s": ["motsetning", "forskjell", "motpol", "ulikhet"]
+    },
+    "kritikk": {
+      "d": "Saklig vurdering og bedømmelse av sterke og svake sider ved en tekst, handling eller påstand.",
+      "s": ["vurdering", "bedømmelse", "innvending", "analyse"]
+    },
+    "kritisk": {
+      "d": "Å undersøke påstander nøye og spørrende i stedet for å godta alt uten bevis.",
+      "s": ["spørrende", "vurderende", "granskende", "nøye"]
+    },
+    "kultur": {
+      "d": "Felles verdier, normer, tradisjoner, språk og kunstuttrykk som deles av en gruppe mennesker.",
+      "s": ["tradisjon", "levemåte", "fellesskap", "samfunnsliv"]
+    },
+    "kunnskap": {
+      "d": "Fakta, innsikt og forståelse man har tilegnet seg gjennom læring og erfaring.",
+      "s": ["viten", "innsikt", "kompetanse", "lærdom"]
+    },
+    "kvalitet": {
+      "d": "Hvor god, holdbar eller verdifull en gjenstand, tekst eller tjeneste er.",
+      "s": ["verdi", "standard", "egenskap", "nivå"]
+    },
+    "kvantitativ": {
+      "d": "Undersøkelser som bygger på tall, målinger og statistikk fra mange enheter.",
+      "s": ["tallbasert", "målbar", "statistisk", "tellbar"]
+    },
+    "kvalitativ": {
+      "d": "Undersøkelser som går i dybden på egenskaper, opplevelser og meninger gjennom f.eks. intervjuer.",
+      "s": ["dybdebasert", "beskrivende", "fortolkende", "innholdsmessig"]
+    },
+    "legitimitet": {
+      "d": "At makt eller regler oppfattes som rettferdige og gyldige av folket.",
+      "s": ["gyldighet", "berettigelse", "tillit", "aksept"]
+    },
+    "likestilling": {
+      "d": "At alle mennesker har like rettigheter, muligheter og vern uavhengig av kjønn eller bakgrunn.",
+      "s": ["likeverd", "rettferdighet", "jamlikhet", "likebehandling"]
+    },
+    "liv": {
+      "d": "Tilværelsen som levende vesen, eller måten mennesker lever og virker på.",
+      "s": ["tilværelse", "eksistens", "levedager", "hverdag"]
+    },
+    "lov": {
+      "d": "En bindende rettsregel vedtatt av Stortinget, eller en fast sammenheng i naturen.",
+      "s": ["regel", "forskrift", "vedtak", "rettsregel"]
+    },
+    "lære": {
+      "d": "Å tilegne seg ny kunnskap eller ferdigheter, eller å undervise andre.",
+      "s": ["studere", "forstå", "tilegne seg", "undervise"]
+    },
+    "løsning": {
+      "d": "Svaret på en oppgave eller måten et problem blir ordnet på.",
+      "s": ["svar", "utvei", "resultat", "ordning"]
+    },
+    "makt": {
+      "d": "Evnen til å nå sine mål eller få andre til å gjøre noe, også mot deres vilje.",
+      "s": ["innflytelse", "styrke", "myndighet", "herredømme"]
+    },
+    "mangfold": {
+      "d": "Stor variasjon og bredde av ulike arter, kulturer, meninger eller bakgrunner.",
+      "s": ["variasjon", "rikdom", "ulikhet", "bredde"]
+    },
+    "metafor": {
+      "d": "Et språklig bilde der ord brukes i overført betydning uten sammenligningsord som «lik» eller «som».",
+      "s": ["språklig bilde", "billedbruk", "overført uttrykk", "symbolikk"]
+    },
+    "metode": {
+      "d": "En planmessig fremgangsmåte for å løse en oppgave eller gjennomføre en undersøkelse.",
+      "s": ["fremgangsmåte", "arbeidsmåte", "teknikk", "prosedyre"]
+    },
+    "miljø": {
+      "d": "Omgivelsene rundt oss, både i naturen og i det sosiale fellesskapet.",
+      "s": ["omgivelser", "natur", "økosystem", "fellesskap"]
+    },
+    "minoritet": {
+      "d": "Et mindretall i en befolkning eller gruppe.",
+      "s": ["mindretall", "undergruppe", "fåtall", "folkemindretall"]
+    },
+    "majoritet": {
+      "d": "Et flertall i en befolkning, forsamling eller gruppe.",
+      "s": ["flertall", "størstedel", "overvekt", "hovedgruppe"]
+    },
+    "modell": {
+      "d": "En forenklet fremstilling av virkeligheten som gjør det lettere å forstå sammenhenger.",
+      "s": ["forbilde", "mønster", "skisse", "forklaringsmodell"]
+    },
+    "moral": {
+      "d": "Normene og verdiene som styrer hva enkeltmennesker og grupper oppfatter som rett og galt i praksis.",
+      "s": ["etikk", "rettskaffenhet", "verdisyn", "oppførselsnorm"]
+    },
+    "motiv": {
+      "d": "Beveggrunnen bak en handling, eller det konkrete emnet i et kunstverk eller en tekst.",
+      "s": ["beveggrunn", "årsak", "hensikt", "grunn"]
+    },
+    "mulighet": {
+      "d": "En sjanse eller utvei som gjør det mulig å oppnå eller velge noe.",
+      "s": ["sjanse", "anledning", "alternativ", "potensial"]
+    },
+    "norm": {
+      "d": "En skreven eller uskreven regel for hvordan man forventes å oppføre seg i et samfunn.",
+      "s": ["regel", "retningslinje", "forventning", "standard"]
+    },
+    "nyansere": {
+      "d": "Å få frem flere sider, detaljer og gradsforskjeller i en sak i stedet for å se alt i svart-hvitt.",
+      "s": ["utdype", "differensiere", "presisere", "balansere"]
+    },
+    "objektiv": {
+      "d": "Saklig og upartisk fremstilling som bygger på kontrollerbare fakta og ikke personlige følelser.",
+      "s": ["saklig", "nøytral", "upartisk", "faktabasert"]
+    },
+    "subjektiv": {
+      "d": "Noe som bygger på personlige meninger, følelser og opplevelser.",
+      "s": ["personlig", "farget", "individuell", "selvopplevd"]
+    },
+    "offentlig": {
+      "d": "Noe som tilhører fellesskapet og staten, eller som er åpent og tilgjengelig for alle.",
+      "s": ["allmenn", "statlig", "felles", "åpen"]
+    },
+    "omfattende": {
+      "d": "Noe som er stort, grundig og dekker mange områder.",
+      "s": ["bred", "inngående", "stor", "vidtrekkende"]
+    },
+    "område": {
+      "d": "Et geografisk sted eller et bestemt fag- eller ansvarsfelt.",
+      "s": ["felt", "sektor", "strøk", "region"]
+    },
+    "oppfatning": {
+      "d": "Måten man forstår eller vurderer en sak på.",
+      "s": ["mening", "synspunkt", "forståelse", "tolkning"]
+    },
+    "oppgave": {
+      "d": "Et arbeid eller oppdrag som skal løses, eller en tekst eleven skal skrive.",
+      "s": ["oppdrag", "gjøremål", "plikt", "utfordring"]
+    },
+    "ordning": {
+      "d": "Et fast system eller en avtale som regulerer hvordan noe fungerer i samfunnet.",
+      "s": ["system", "tiltak", "organisering", "avtale"]
+    },
+    "paradoks": {
+      "d": "En påstand eller situasjon som virker selvmotsigende ved første øyekast, men som likevel rommer en sannhet.",
+      "s": ["selvmotsigelse", "tankekors", "motsetning", "gåte"]
+    },
+    "perspektiv": {
+      "d": "Synsvinkelen eller ståstedet man betrakter en sak eller fortelling fra.",
+      "s": ["synsvinkel", "ståsted", "synspunkt", "innfallsvinkel"]
+    },
+    "politikk": {
+      "d": "Arbeidet med å styre samfunnet, ta felles beslutninger og fordele goder og byrder.",
+      "s": ["samfunnsstyring", "statskunst", "beslutningsprosess", "styresett"]
+    },
+    "potensial": {
+      "d": "Muligheter eller krefter som ligger latent og kan utvikles videre.",
+      "s": ["mulighet", "utviklingsevne", "kapasitet", "evne"]
+    },
+    "premiss": {
+      "d": "En forutsetning eller påstand som en konklusjon eller et argument bygger på.",
+      "s": ["forutsetning", "vilkår", "grunnlag", "betingelse"]
+    },
+    "prinsipp": {
+      "d": "En grunnleggende regel eller rettesnor som styrer handlinger eller systemer.",
+      "s": ["grunnregel", "rettesnor", "lovmessighet", "verdi"]
+    },
+    "problemstilling": {
+      "d": "Et presist spørsmål som avgrenser hva en oppgave eller undersøkelse skal finne svar på.",
+      "s": ["hovedspørsmål", "forskningsspørsmål", "tema", "utfordring"]
+    },
+    "prosess": {
+      "d": "En sammenhengende rekke av hendelser eller trinn som fører frem til et resultat.",
+      "s": ["forløp", "utvikling", "fremgangsmåte", "gang"]
+    },
+    "påstand": {
+      "d": "Et utsagn der noen hevder at noe er sant eller riktig.",
+      "s": ["utsagn", "tese", "synspunkt", "mening"]
+    },
+    "påvirke": {
+      "d": "Å ha innflytelse på eller endre hvordan noen tenker, handler eller utvikler seg.",
+      "s": ["forme", "prege", "styre", "innvirke"]
+    },
+    "redegjøre": {
+      "d": "Å gi en ryddig, saklig og oversiktlig fremstilling av fakta og sammenhenger i et emne.",
+      "s": ["forklare", "beskrive", "fremstille", "gjennomgå"]
+    },
+    "reflektere": {
+      "d": "Å tenke grundig og selvstendig gjennom et tema fra flere sider.",
+      "s": ["tenke gjennom", "overveie", "fundere", "drøfte"]
+    },
+    "relevant": {
+      "d": "Noe som er viktig og har direkte betydning for saken man jobber med.",
+      "s": ["aktuell", "vesentlig", "viktig", "sakssvarende"]
+    },
+    "ressurs": {
+      "d": "Et hjelpemiddel, råstoff, kunnskap eller arbeidskraft som brukes til å skape verdier.",
+      "s": ["hjelpemiddel", "kilde", "rikdom", "kapasitet"]
+    },
+    "resultat": {
+      "d": "Det man sitter igjen med etter en prosess, en undersøkelse eller en innsats.",
+      "s": ["utfall", "virkning", "følge", "konklusjon"]
+    },
+    "retorikk": {
+      "d": "Læren om talekunst og hvordan språk brukes for å overbevise tilhørere eller lesere.",
+      "s": ["talekunst", "overbevisningskunst", "argumentasjonslære", "ordkunst"]
+    },
+    "rett": {
+      "d": "Det man har krav på etter loven eller moralen.",
+      "s": ["rettighet", "krav", "lov", "rettferdighet"]
+    },
+    "rettighet": {
+      "d": "Et vernet krav eller en frihet som enhver borger eller ethvert menneske har.",
+      "s": ["krav", "frihet", "hevd", "rett"]
+    },
+    "rettsstat": {
+      "d": "En stat der makthaverne er bundet av lovene, og der uavhengige domstoler sikrer borgernes rettigheter.",
+      "s": ["rettssikkerhet", "lovstyre", "forfatningsstat", "demokrati"]
+    },
+    "risiko": {
+      "d": "Sannsynligheten for at noe uønsket eller skadelig kan skje, kombinert med konsekvensene av det.",
+      "s": ["fare", "usikkerhet", "trussel", "sjanse"]
+    },
+    "rolle": {
+      "d": "Summen av forventninger som knytter seg til en bestemt posisjon eller oppgave i samfunnet.",
+      "s": ["oppgave", "funksjon", "posisjon", "atferdsmønster"]
+    },
+    "samfunn": {
+      "d": "Et organisert fellesskap av mennesker som lever sammen innenfor et område med felles regler og institusjoner.",
+      "s": ["fellesskap", "nasjon", "stat", "offentlighet"]
+    },
+    "samhandling": {
+      "d": "Det at mennesker handler og kommuniserer i gjensidig påvirkning med hverandre.",
+      "s": ["samarbeid", "interaksjon", "samspill", "fellesskap"]
+    },
+    "sammenheng": {
+      "d": "Forbindelsen mellom årsak og virkning, eller helheten som deler inngår i.",
+      "s": ["kontekst", "forbindelse", "helhet", "relasjon"]
+    },
+    "sammenligne": {
+      "d": "Å holde to eller flere fenomener opp mot hverandre for å finne likheter og forskjeller.",
+      "s": ["jamføre", "stille opp mot", "måle", "vurdere"]
+    },
+    "sannsynlig": {
+      "d": "Noe det er god grunn til å tro at vil skje eller er riktig.",
+      "s": ["trolig", "ventelig", "rimelig", "mulig"]
+    },
+    "sentral": {
+      "d": "Noe som står i midten eller er ekstra viktig i en sammenheng.",
+      "s": ["viktig", "grunnleggende", "avgjørende", "vesentlig"]
+    },
+    "situasjon": {
+      "d": "Tilstanden eller forholdene på et bestemt tidspunkt.",
+      "s": ["tilstand", "stilling", "omstendighet", "forhold"]
+    },
+    "sol": {
+      "d": "Stjernen i sentrum av solsystemet vårt som gir lys, varme og energi til jorda.",
+      "s": ["stjerne", "lyskilde", "sollys", "varmekilde"]
+    },
+    "solcelle": {
+      "d": "En teknisk enhet som omdanner lysenergi fra sola direkte til elektrisk strøm.",
+      "s": ["solpanel", "strømcelle", "energifanger", "fotovoltaisk celle"]
+    },
+    "solidaritet": {
+      "d": "Samhold og praktisk støtte til andre mennesker eller grupper som trenger det.",
+      "s": ["samhold", "fellesskap", "støtte", "medansvar"]
+    },
+    "sosialisering": {
+      "d": "Prosessen der mennesker lærer normer, verdier og ferdigheter for å fungere i samfunnet.",
+      "s": ["oppdragelse", "tilpasning", "kulturlæring", "fellesskapsforming"]
+    },
+    "språk": {
+      "d": "System av ord, lyder og tegn som mennesker bruker for å tenke, uttrykke seg og kommunisere.",
+      "s": ["tungemål", "uttrykksmåte", "tale", "kommunikasjonsmiddel"]
+    },
+    "stat": {
+      "d": "En politisk enhet med fast territorium, befolkning og øverste myndighet som lager og håndhever lover.",
+      "s": ["land", "nasjon", "myndighet", "statsmakt"]
+    },
+    "strategi": {
+      "d": "En langsiktig og gjennomtenkt plan for hvordan man skal nå et viktig mål.",
+      "s": ["plan", "fremgangsmåte", "taktikk", "målplan"]
+    },
+    "struktur": {
+      "d": "Måten deler er bygget opp og satt sammen på i en tekst, et samfunn eller en gjenstand.",
+      "s": ["oppbygning", "mønster", "system", "form"]
+    },
+    "styre": {
+      "d": "Å lede et land, en organisasjon eller en prosess, eller gruppen som har det øverste ansvaret.",
+      "s": ["lede", "regjere", "ledelse", "myndighet"]
+    },
+    "suverenitet": {
+      "d": "En stats fulle rett til selvbestemmelse over eget territorium uten innblanding fra andre stater.",
+      "s": ["selvråderett", "uavhengighet", "selvstyre", "overhøyhet"]
+    },
+    "symbol": {
+      "d": "Et konkret tegn, bilde eller gjenstand som representerer en dypere idé eller betydning.",
+      "s": ["kjennetegn", "zinnebilde", "tegn", "bilde"]
+    },
+    "synonym": {
+      "d": "Et ord som har helt eller nesten samme betydning som et annet ord.",
+      "s": ["likebetydende ord", "alternativt ord", "meningsfelle", "avveksler"]
+    },
+    "synspunkt": {
+      "d": "En bestemt mening eller vurdering av en sak.",
+      "s": ["mening", "oppfatning", "ståsted", "holdning"]
+    },
+    "system": {
+      "d": "En helhet der ulike deler virker sammen etter bestemte regler eller mønstre.",
+      "s": ["ordning", "struktur", "helhet", "oppbygning"]
+    },
+    "tak": {
+      "d": "Den øverste delen som dekker og beskytter en bygning, eller en øvre grense for noe.",
+      "s": ["hustak", "dekke", "overdekning", "øvre grense"]
+    },
+    "teknologi": {
+      "d": "Praktisk bruk av vitenskapelig kunnskap, verktøy og maskiner for å løse oppgaver.",
+      "s": ["teknikk", "verktøy", "innovasjon", "maskinkunst"]
+    },
+    "tekst": {
+      "d": "En sammenhengende ytring av ord, skrift, bilder eller lyd som formidler mening.",
+      "s": ["skriftstykke", "artikkel", "innhold", "ytring"]
+    },
+    "tema": {
+      "d": "Den grunnleggende ideen eller det dypere spørsmålet en tekst eller diskusjon handler om.",
+      "s": ["grunntanke", "emne", "hovedinnhold", "budskap"]
+    },
+    "tendens": {
+      "d": "En tydelig retning eller utviklingstrekk i et tallmateriale eller i samfunnet.",
+      "s": ["utviklingstrekk", "retning", "trend", "strømning"]
+    },
+    "teori": {
+      "d": "Et system av begreper og antakelser som forklarer sammenhenger i naturen eller samfunnet.",
+      "s": ["forklaringsmodell", "lære", "hypotesesystem", "tankebygning"]
+    },
+    "tillit": {
+      "d": "Det å stole på at andre mennesker eller samfunnsinstitusjoner er ærlige og pålitelige.",
+      "s": ["troverdighet", "trygghet", "tilknytning", "tiltro"]
+    },
+    "tilpasse": {
+      "d": "Å endre eller justere noe slik at det passer bedre til nye forhold eller behov.",
+      "s": ["justere", "innrette", "forme", "moderere"]
+    },
+    "tiltak": {
+      "d": "En konkret handling eller ordning som settes i verk for å løse et problem eller nå et mål.",
+      "s": ["virkemiddel", "grep", "handling", "initiativ"]
+    },
+    "tolke": {
+      "d": "Å finne frem til og forklare meningen i en tekst, et kunstverk eller et datamateriale.",
+      "s": ["forklare", "tyde", "analysere", "utlegge"]
+    },
+    "tolkning": {
+      "d": "Forståelsen og forklaringen av hva en tekst, en lov eller et fenomen betyr.",
+      "s": ["analyse", "tyding", "forståelse", "utlegging"]
+    },
+    "tradisjon": {
+      "d": "Skikker, verdier og praksiser som overføres fra generasjon til generasjon.",
+      "s": ["sedvane", "kulturarv", "skikk", "vane"]
+    },
+    "undersøke": {
+      "d": "Å granske eller sette seg grundig inn i noe for å finne svar.",
+      "s": ["utforske", "granske", "analysere", "kartlegge"]
+    },
+    "utdanning": {
+      "d": "Planmessig opplæring og studier som gir kunnskap og kompetanse.",
+      "s": ["opplæring", "skolegang", "studium", "kvalifisering"]
+    },
+    "utfordring": {
+      "d": "En krevende oppgave eller vanskelighet som krever innsats for å løses.",
+      "s": ["problem", "vanskelighet", "oppgave", "prøvelse"]
+    },
+    "utgangspunkt": {
+      "d": "Det man starter fra når man skal forklare, undersøke eller gjøre noe.",
+      "s": ["grunnlag", "startpunkt", "basis", "forutsetning"]
+    },
+    "uttrykk": {
+      "d": "En måte å vise tanker eller følelser på, eller en fast ordforbindelse i språket.",
+      "s": ["formulering", "vending", "begrep", "ytring"]
+    },
+    "utvikling": {
+      "d": "En gradvis endring over tid, ofte mot noe mer avansert eller modent.",
+      "s": ["fremgang", "endring", "vekst", "prosess"]
+    },
+    "valg": {
+      "d": "Det å bestemme seg mellom flere muligheter, eller avstemning der borgerne velger representanter.",
+      "s": ["avstemning", "beslutning", "avgjørelse", "utvelgelse"]
+    },
+    "variabel": {
+      "d": "En egenskap eller størrelse som kan variere og anta ulike verdier i en undersøkelse.",
+      "s": ["faktor", "størrelse", "måleenhet", "egenskap"]
+    },
+    "velferd": {
+      "d": "Befolkningens levekår, trygghet, helse og livskvalitet i et samfunn.",
+      "s": ["levekår", "trygghet", "livskvalitet", "omsorg"]
+    },
+    "velferdsstat": {
+      "d": "En stat som sikrer innbyggerne økonomisk og sosial trygghet ved sykdom, arbeidsledighet, utdanning og alderdom.",
+      "s": ["trygghetssamfunn", "fellesskapsstat", "omsorgsstat", "folketrygd"]
+    },
+    "verdi": {
+      "d": "Noe vi setter høyt og mener er viktig og verdifullt å strekke seg etter i livet og samfunnet.",
+      "s": ["grunnverdi", "ideal", "betydning", "kvalitet"]
+    },
+    "vern": {
+      "d": "Beskyttelse mot skade, overgrep eller ødeleggelse.",
+      "s": ["beskyttelse", "sikring", "bevaring", "trygghet"]
+    },
+    "virkemiddel": {
+      "d": "Et grep en forfatter, taler eller politiker bruker for å oppnå en bestemt effekt.",
+      "s": ["grep", "teknikk", "metode", "tiltak"]
+    },
+    "virkning": {
+      "d": "Resultatet eller effekten som en årsak eller et virkemiddel skaper.",
+      "s": ["effekt", "konsekvens", "resultat", "følge"]
+    },
+    "vitenskap": {
+      "d": "Systematisk og etterprøvbar utforskning av virkeligheten for å bygge sikker kunnskap.",
+      "s": ["forskning", "fagkunnskap", "lærdom", "metudelære"]
+    },
+    "vurdering": {
+      "d": "En gjennomtenkt bedømmelse av kvalitet, verdi eller gyldighet.",
+      "s": ["evaluering", "bedømmelse", "drøfting", "analyse"]
+    },
+    "ytring": {
+      "d": "Det å gi uttrykk for en mening eller tanke gjennom tale, skrift eller bilde.",
+      "s": ["uttalelse", "utsagn", "meningsytring", "budskap"]
+    },
+    "ytringsfrihet": {
+      "d": "Retten til fritt å si, skrive og dele meninger og informasjon uten forhåndssensur.",
+      "s": ["talefrihet", "meningsfrihet", "pressefrihet", "åpenhet"]
+    },
+    "økologi": {
+      "d": "Læren om samspillet mellom levende organismer og miljøet de lever i.",
+      "s": ["naturbalanse", "miljølære", "samspill", "økosystem"]
+    },
+    "økonomi": {
+      "d": "Hvordan ressurser, penger, varer og tjenester produseres, fordeles og brukes.",
+      "s": ["ressursforvaltning", "pengevesen", "næringsliv", "husholdning"]
+    },
+    "årsak": {
+      "d": "Grunnen eller forholdet som får noe annet til å skje.",
+      "s": ["grunn", "foranledning", "opphav", "kilde"]
+    },
+    "åpenhet": {
+      "d": "Ærlighet og innsyn i hvordan beslutninger tas, og vilje til å lytte til ulike synspunkter.",
+      "s": ["innsyn", "gjennomsiktighet", "ærlighet", "toleranse"]
+    }
+  },
+  "irregularLemmas": {
+    "lærte": "lære",
+    "lært": "lære",
+    "forsto": "forstå",
+    "forstod": "forstå",
+    "forstått": "forstå",
+    "bidro": "bidra",
+    "bidratt": "bidra",
+    "gjelder": "allmenn",
+    "folkestyrene": "folkestyre",
+    "folkestyret": "folkestyre",
+    "demokratier": "demokrati",
+    "demokratiene": "demokrati",
+    "demokratiet": "demokrati",
+    "utfordringene": "utfordring",
+    "utfordringer": "utfordring",
+    "rettighetene": "rettighet",
+    "rettigheter": "rettighet",
+    "mulighetene": "mulighet",
+    "muligheter": "mulighet",
+    "betingelser": "forutsetning",
+    "betingelsene": "forutsetning",
+    "konsekvensene": "konsekvens",
+    "konsekvenser": "konsekvens",
+    "virkemidler": "virkemiddel",
+    "virkemidlene": "virkemiddel",
+    "virkemiddelet": "virkemiddel",
+    "argumenter": "argument",
+    "argumentene": "argument",
+    "hypoteser": "hypotese",
+    "hypotesene": "hypotese",
+    "fenomener": "fenomen",
+    "fenomenene": "fenomen",
+    "verdier": "verdi",
+    "verdiene": "verdi"
+  }
+}

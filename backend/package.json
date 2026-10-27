@@ -1,0 +1,13 @@
+{
+  "name": "voxlex-companion-backend",
+  "version": "1.0.0",
+  "description": "Anonym, Telemark IP-låst Tier-2 ordbokproxy mot Gemini 3.5 Flash-Lite for VoxLex Companion",
+  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

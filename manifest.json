@@ -1,0 +1,85 @@
+{
+  "manifest_version": 3,
+  "name": "VoxLex Companion",
+  "version": "1.0.0",
+  "description": "Lynrask, 100 % GDPR-trygg lese- og ordforklaringsutvidelse med synonymer, opplesing og morsmålsstøtte for videregående skole.",
+  "author": "Christian Borchgrevink-Vigeland / VoxCuriosa",
+  "homepage_url": "https://voxcuriosa.no/voxlexcompanion/",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "VoxLex Companion (Klikk for PÅ / AV)",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://voxlex-lookup-180422997316.europe-west1.run.app/*",
+    "https://snl.no/*",
+    "https://no.wikipedia.org/*"
+  ],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "exclude_matches": [
+        "*://*.bankid.no/*",
+        "*://*.vipps.no/*",
+        "*://*.dnb.no/*",
+        "*://*.sparebank1.no/*",
+        "*://*.nordea.no/*",
+        "*://*.handelsbanken.no/*",
+        "*://*.sbanken.no/*",
+        "*://*.idporten.no/*",
+        "*://*.altinn.no/*",
+        "*://*.nav.no/*",
+        "*://*.helsenorge.no/*",
+        "*://*.skatteetaten.no/*",
+        "*://*.lanekassen.no/*",
+        "*://*.feide.no/*",
+        "*://*.dataporten.no/*",
+        "*://*.privex.no/*",
+        "*://*.inspera.no/*",
+        "*://*.inspera.com/*",
+        "*://*.wiseflow.net/*",
+        "*://*.digiexam.com/*",
+        "*://*.voxcuriosa.no/seb/*"
+      ],
+      "js": [
+        "content/voxlex-lookup.js",
+        "content/voxlex-ui.js",
+        "content/voxlex-helper.js"
+      ],
+      "css": [
+        "content/voxlex-helper.css"
+      ],
+      "all_frames": true,
+      "match_about_blank": true,
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "data/ordbok/*.json"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
