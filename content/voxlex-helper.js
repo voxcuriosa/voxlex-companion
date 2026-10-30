@@ -158,18 +158,18 @@
         { word: localHit.word, headword: localHit.headword, parts: localHit.parts, badge, definition: localHit.definition, synonyms: localHit.synonyms, allowSnlExpand: true },
         anchorRect, currentTargetLang, saveLanguagePreference
       );
-      if (!isCompound) return;
-    } else {
-      globalScope.VoxLexUI.renderPopup(
-        { word, headword: word, badge: '[OPPSLAG]', loading: true },
-        anchorRect, currentTargetLang, saveLanguagePreference
-      );
+      return;
     }
+
+    globalScope.VoxLexUI.renderPopup(
+      { word, headword: word, badge: '[OPPSLAG]', loading: true },
+      anchorRect, currentTargetLang, saveLanguagePreference
+    );
 
     const ext = await globalScope.VoxLexLookup.requestExtendedLookup(word, currentTargetLang);
     if (ext && ext.ok && ext.tier2 && ext.tier2.ok && ext.tier2.definition) {
       globalScope.VoxLexUI.renderPopup(
-        { word, headword: word, badge: '[SKOLENETT]', definition: ext.tier2.definition, synonyms: ext.tier2.synonyms || (localHit && localHit.synonyms) || [], allowSnlExpand: true },
+        { word, headword: word, badge: '[SKOLENETT]', definition: ext.tier2.definition, synonyms: ext.tier2.synonyms || [], allowSnlExpand: true },
         anchorRect, currentTargetLang, saveLanguagePreference
       );
       return;
@@ -177,13 +177,11 @@
 
     if (ext && ext.ok && ext.encyclopedia && ext.encyclopedia.ok && ext.encyclopedia.summary) {
       globalScope.VoxLexUI.renderPopup(
-        { word, headword: word, badge: `[${ext.encyclopedia.source.toUpperCase()}]`, definition: ext.encyclopedia.summary, synonyms: (localHit && localHit.synonyms) || [], allowSnlExpand: false },
+        { word, headword: word, badge: `[${ext.encyclopedia.source.toUpperCase()}]`, definition: ext.encyclopedia.summary, synonyms: [], allowSnlExpand: false },
         anchorRect, currentTargetLang, saveLanguagePreference
       );
       return;
     }
-
-    if (localHit && localHit.found) return;
 
     globalScope.VoxLexUI.renderPopup(
       { word, headword: word, badge: '[ORDBOK]', outsideSchoolNetwork: true, synonyms: [] },

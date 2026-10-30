@@ -11,24 +11,37 @@ VoxLex Companion
 Rask, 100 % personverntrygg ordforklarings- og synonymutvidelse med opplesing og morsmålsstøtte for videregående skole.
 
 **Detailed Description** [REQUIRED]
-VoxLex Companion gir elever og lærere umiddelbare synonymer, enkle ordforklaringer og taleopplesing ved dobbeltklikk eller markering av enkeltord på nettsider og i digitale læremidler.
+VoxLex Companion er en universell lese- og ordforklaringsutvidelse for elever og lærere i videregående skole. Utvidelsen gir deg umiddelbare synonymer, enkle ordforklaringer på bokmål og nynorsk, taleopplesing og flerspråklig støtte når du dobbeltklikker eller markerer enkeltord på nettsider og i digitale læremidler.
 
-Nøkkelfunksjoner:
-Lynrask lokal ordbok som fungerer overalt – på skolen, hjemme og uten nettilgang.
-Tydelige synonymer og korte, lettleste forklaringer tilpasset elever i videregående skole.
-Innebygd norsk taleopplesing av oppslagsord og forklaring.
-Morsmålsstøtte med oversettelse til sentrale støttespråk direkte i oppslagskortet.
-Direkte fordypningslenker til Ordbøkene.no, Store norske leksikon (SNL) og Wikipedia når du er på nett.
-Høykontrast og dysleksivennlig visning som fungerer sømløst også inne i digitale e-bøker.
+FUNKSJONER OG NYTTE
+- Umiddelbare synonymer: Få opp klikkbare alternativer som gjør det lettere å forstå fagtekster og variere språket.
+- Komplett norsk ordbok (Bokmål og Nynorsk): Hele Bokmålsordboka og Nynorskordboka (130 600 oppslagsord og over 385 000 bøyde ordformer) ligger innebygd lokalt med korte definisjoner tilpasset videregående skole. Nynorskord merkes tydelig med [NYNORSK].
+- Fungerer i digitale lærebøker og e-bøker: Sømløs støtte for Smartbok, Unibok, NDLA, Brettboka, Aschehoug Univers og vanlige nettsider.
+- Norsk taleopplesing: Ett klikk på LYD leser opp ordet og forklaringen med naturlig norsk stemme (nb-NO).
+- Flerspråklig morsmålsstøtte og utvidet søk på skolenett: På skolens nettverk kan du velge støttespråk direkte i kortet for oversettelse til ukrainsk, arabisk, engelsk, somali, polsk, tigrinja, spansk, kurdisk, persisk eller vietnamesisk. (Foreløpig aktivert på skoler i Telemark fylkeskommune – andre fylker og kommuner får gratis tilgang ved å oppgi sin IP-range.)
+- Faglig fordypning: Direkte kildelenker til Ordbøkene.no, Store norske leksikon (SNL) og Wikipedia når du er på nett.
+- Høy kontrast og dysleksivennlig design: Skarp typografi, mørkt høykontrast-kort og null forstyrrende elementer.
 
-Slik bruker du utvidelsen:
-1. Dobbeltklikk på eller marker et enkeltord på en nettside eller i en digital lærebok.
-2. Et lesevennlig kort viser umiddelbart synonymer og en enkel forklaring på ordet.
-3. Klikk på LYD for å få ordet og forklaringen lest opp, eller velg ønsket morsmål i menyen øverst i kortet.
-4. Klikk på utvidelsesikonet i verktøylinjen dersom du ønsker å slå utvidelsen midlertidig av eller på.
+SLIK BRUKER DU UTVIDELSEN
+1. Dobbeltklikk på eller marker et ord i teksten du leser.
+2. Et lesevennlig kort åpnes rett ved ordet med synonymer og en enkel forklaring.
+3. Klikk på et synonym for å utforske det videre, eller trykk LYD for å høre uttalen.
+4. Klikk på utvidelsesikonet i verktøylinjen dersom du ønsker å slå hjelpen midlertidig av eller på.
 
-Personvern og sikkerhet (100 % GDPR-trygg):
-VoxLex Companion krever ingen innlogging, lagrer ingen personopplysninger, bruker ingen informasjonskapsler (cookies) og sporer aldri hva du leser. Valgt språk og av/på-status lagres kun lokalt på din egen maskin.
+PERSONVERN OG GDPR (100 % TRYGG I SKOLEN)
+VoxLex Companion er bygget etter prinsippet om innebygd personvern (Privacy by Design) og oppfyller de strengeste kravene til personvern i skolesektoren:
+- Ingen brukerkonto eller innlogging: Krever ingen Feide, e-post, elev-ID, passord eller tokens.
+- Ingen sporing eller profilering: Utvidelsen samler aldri inn nettleserhistorikk, enhetsdata eller brukeratferd.
+- Ingen informasjonskapsler (cookies): Det benyttes ingen cookies eller analyseverktøy (null Google Analytics eller sporingspiksler).
+- Sikret mot utilsiktet deling av personopplysninger: Utvidelsen har intet fritekstsøkefelt. Det er teknisk umulig for elever å taste inn navn, fødselsnummer eller meldinger. Kun ett enkelt markert oppslagsord kan behandles.
+- Lokal lagring på enheten: Dine innstillinger (av/på-status og valgt støttespråk) lagres utelukkende lokalt i din egen nettleser (chrome.storage.local) og synkroniseres aldri til eksterne skytjenester.
+- Full offline-integritet: Den lokale ordboken med 130 600 oppslagsord på bokmål og nynorsk ligger lagret lokalt i utvidelsen og fungerer overalt helt uten internettforbindelse.
+- Automatisk eksamens- og domenesperre: Utvidelsen deaktiverer seg selv automatisk på digitale eksamensplattformer (SEB, Inspera, Wiseflow, DigiExam) samt på BankID, ID-porten, Helsenorge, NAV og Feide.
+- 100 % Åpen kildekode (MIT-lisens): Hele kildekoden kan fritt inspiseres av IKT-avdelinger og personvernombud på GitHub.
+
+KONTAKT OG TILBAKEMELDINGER
+Utviklet for og i samarbeid med skolesektoren. Andre fylkeskommuner og kommuner kan ta kontakt for gratis åpning av skolenett-funksjoner (IP-range).
+Nettsted og personvern: https://voxcuriosa.no/voxlexcompanion/
 
 **Category** [REQUIRED]
 Accessibility
