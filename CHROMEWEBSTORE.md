@@ -98,4 +98,9 @@ https://voxcuriosa.no/voxlexcompanion/
 
 | Version | Date | Changes | Status |
 |---------|------|---------|--------|
-| 1.0.0 | 2026-10-27 | Første utgivelse av VoxLex Companion med lokal offline-ordbok, høykontrast-kort, taleopplesing, morsmålsstøtte, SNL/Wikipedia-integrasjon og Telemark skolenett-backend. | Draft |
+| 1.0.4 | 2026-10-30 | Klikkbar Hjelp/GDPR-lenke (`VoxLex Lesehjelp`) i popup-footer og full synkronisering av dokumentasjon og hjelpesenter. | Archived |
+| 1.0.5 | 2026-10-30 | 100 % av Bokmålsordboka + Nynorskordboka offline (`130 600` oppslagsord, `[NYNORSK]`-merke) samt `[LOKAL MODUS]`-indikator med tooltip utenfor skolenett. | Ready |
+| 1.0.3 | 2026-10-30 | Frekvensrangering og sammenslåing (`1) ... 2) ...`) av alle 3 396 homonymer i Bokmålsordboka, forbedret håndtering av sammensatte ord, og fleksibel header uten tekstkutt. | Superseded |
+| 1.0.2 | 2026-10-29 | Lagt til full støtte for `blob:`/XHTML EPUB-iframer i Unibok/Smartbok (`match_origin_as_fallback` + direkte `contentDocument`-bro og koordinattransformasjon). | Superseded |
+| 1.0.1 | 2026-10-29 | Oppdatert Ordbøkene-lenke (`/nob/bm,nn/`), lagt til 26 892 sterke/uregelmessige bøyningsformer i lokal `lemma.json`, og skjerpet `sanitizeWord`. | Superseded |
+| 1.0.0 | 2026-10-27 | Første utgivelse av VoxLex Companion med lokal offline-ordbok, høykontrast-kort, taleopplesing, morsmålsstøtte, SNL/Wikipedia-integrasjon og Telemark skolenett-backend. | Superseded |

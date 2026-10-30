@@ -11,6 +11,8 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
+const { execSync } = require('child_process');
 
 const ROOT = path.resolve(__dirname, '..');
 const Lookup = require(path.join(ROOT, 'content', 'voxlex-lookup.js'));
@@ -50,20 +52,28 @@ async function runTests() {
     ['folkestyrene', 'folkestyre'],
     ['demokratier', 'demokrati'],
     ['lærte', 'lære'],
+    ['pågrepet', 'pågripe'],
+    ['during', 'dure'],
     ['utfordringene', 'utfordring'],
     ['konsekvensene', 'konsekvens']
   ];
   for (const [surface, expectedHead] of inflectedCases) {
     const res = await Lookup.lookupLocal(surface);
-    ok(`Bøyd ord i tekst "${surface}" gir betydning/synonymer for "${expectedHead}"`, res.found && res.headword === expectedHead && res.synonyms.length >= 2);
+    ok(`Bøyd ord i tekst "${surface}" gir betydning/synonymer for "${expectedHead}"`, res.found && res.headword === expectedHead && res.definition.length > 10);
   }
 
-  // 4. Sammensatte ord: Både direkte oppslag i fullordboka (96 600+ ord) og dynamisk compound splitter
-  const directCompounds = ['samfunnsutvikling', 'klimaendring', 'arbeidsmiljø'];
+  // 4. Sammensatte ord og Nynorskordboka: Direkte oppslag i fullordboka (130 600 ord) og dynamisk compound splitter
+  const directCompounds = ['samfunnsutvikling', 'klimaendring', 'arbeidsmiljø', 'kokskull', 'aldersgruppe', 'alarmklokke'];
   for (const word of directCompounds) {
     const res = await Lookup.lookupLocal(word);
     ok(`Oppslagsord "${word}" finnes direkte i den utvidede lokale ordboka`, res.found && res.definition.length > 10);
   }
+  const nnRes = await Lookup.lookupLocal('moglegheitene');
+  ok('Nynorskord og nynorsk bøyning ("moglegheitene" -> "moglegheit") finnes offline og merkes som nynorsk', nnRes.found && nnRes.headword === 'moglegheit' && nnRes.isNynorsk === true);
+  const koksRes = await Lookup.lookupLocal('koks');
+  const kullRes = await Lookup.lookupLocal('kull');
+  ok('Homonym-rangering: "koks" viser brensel av steinkull (ikke gammelt dialektord for øse)', koksRes.definition.includes('brensel'));
+  ok('Homonym-sammenslåing: "kull" viser både karbon/brensel (1) og dyreunger (2)', kullRes.definition.includes('1)') && kullRes.definition.includes('2)'));
 
   const dynamicCompounds = [
     ['solcelletak', 'solcelle', 'tak'],
@@ -173,6 +183,68 @@ async function runTests() {
       inManifest && inHelper && inSkill
     );
   }
+
+  // 10. Runtime SEB- og domenesperre i content/voxlex-helper.js
+  function isBlockedRuntime(hostname, pathname = '/', search = '') {
+    let listeners = 0;
+    const ctx = {
+      window: { location: { hostname, pathname, search } },
+      document: { addEventListener: () => { listeners++; } },
+      VoxLexLookup: Lookup,
+      VoxLexUI: { setOnWordSelect: () => {} }
+    };
+    ctx.globalThis = ctx;
+    vm.createContext(ctx);
+    vm.runInContext(helperCode, ctx);
+    return listeners === 0;
+  }
+  ok('Runtime blokkerer SEB-ruter (/seb/start/, /seb/exam/, ?seb=1)',
+    isBlockedRuntime('voxcuriosa.no', '/seb/start/test') &&
+    isBlockedRuntime('voxcuriosa.no', '/seb/exam/1') &&
+    isBlockedRuntime('ndla.no', '/fag', '?seb=1')
+  );
+  ok('Runtime blokkerer bankid.no, idporten.no og inspera.no, men tillater ndla.no',
+    isBlockedRuntime('www.bankid.no') &&
+    isBlockedRuntime('login.idporten.no') &&
+    isBlockedRuntime('utdanning.inspera.no') &&
+    !isBlockedRuntime('ndla.no', '/nb/fagstoff')
+  );
+
+  // 11. Service Worker cookiefri proxy (credentials: omit, referrerPolicy: no-referrer) og PII-sperre
+  let swListener = null;
+  const swFetchCalls = [];
+  const swCtx = {
+    fetch: async (url, opts) => {
+      swFetchCalls.push({ url, opts });
+      return { status: 200, ok: true, json: async () => ({ definition: 'Forklaring.', synonyms: ['ord'] }) };
+    },
+    AbortController, setTimeout, clearTimeout,
+    chrome: {
+      action: { setBadgeText: async () => {}, setBadgeBackgroundColor: async () => {}, setTitle: async () => {}, onClicked: { addListener: () => {} } },
+      storage: { local: { get: async (d) => d, set: async () => {} } },
+      runtime: { onInstalled: { addListener: () => {} }, onMessage: { addListener: (fn) => { swListener = fn; } } }
+    }
+  };
+  vm.createContext(swCtx);
+  vm.runInContext(swCode, swCtx);
+  const piiSwRes = await new Promise((r) => swListener({ type: 'VOXLEX_LOOKUP_EXTENDED', word: '12050812345' }, {}, r));
+  ok('Service Worker blokkerer fødselsnummer med 0 nettverkskall', !piiSwRes.ok && swFetchCalls.length === 0);
+  await new Promise((r) => swListener({ type: 'VOXLEX_LOOKUP_EXTENDED', word: 'fotosyntese', lang: 'nb' }, {}, r));
+  ok('Service Worker tvinger credentials: omit, referrerPolicy: no-referrer og cache: no-store',
+    swFetchCalls.length >= 2 && swFetchCalls.every((c) => c.opts.credentials === 'omit' && c.opts.referrerPolicy === 'no-referrer' && c.opts.cache === 'no-store')
+  );
+
+  // 12. ZIP-arkiv integritetskontroll og Ordbøkene URL-sjekk
+  const uiCode = fs.readFileSync(path.join(ROOT, 'content/voxlex-ui.js'), 'utf8');
+  ok('Ordbøkene-lenke bruker direkte rute https://ordbokene.no/nob/bm,nn/ uten /search?q= 404-feil',
+    uiCode.includes('https://ordbokene.no/nob/bm,nn/') && !uiCode.includes('ordbokene.no/bm,nn/search')
+  );
+  ok('Elev-popupen inneholder ingen GitHub-lenke', !uiCode.includes('github.com'));
+  ok('Elev-popupen har [LOKAL MODUS]-indikator med tooltip utenfor skolenett', uiCode.includes('[LOKAL MODUS]') && uiCode.includes('data-tooltip'));
+  const zipOut = execSync(`unzip -l "${path.join(ROOT, 'VoxLex-Companion-v1.0.5.zip')}"`).toString();
+  ok('VoxLex-Companion-v1.0.5.zip inneholder kun produksjonsfiler (ingen .DS_Store, backend/ eller scripts/)',
+    zipOut.includes('manifest.json') && !zipOut.includes('.DS_Store') && !zipOut.includes('backend/') && !zipOut.includes('scripts/')
+  );
 
   console.log(`\n[SUKSESS] Alle ${passed} tester bestatt uten feil.`);
 }

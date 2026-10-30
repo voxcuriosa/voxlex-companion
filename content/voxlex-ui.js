@@ -10,19 +10,14 @@
 
   const SCHOOL_NETWORK_NOTICE =
     'Dette ordet finnes ikke i den lokale ordboka. Utvidet søk er kun tilgjengelig når du er koblet til skolens nettverk.';
+  const LOCAL_MODE_TOOLTIP =
+    'Utenfor skolenett: Lokal ordbok (bokmål og nynorsk) samt SNL/Wikipedia virker som normalt. Utvidet AI-søk og morsmålsoversettelse krever skolenett (foreløpig Telemark – andre fylker/kommuner kan få gratis tilgang via Hjelp).';
 
   const LANGUAGES = [
-    { code: 'nb', label: 'Norsk' },
-    { code: 'en', label: 'Engelsk' },
-    { code: 'uk', label: 'Ukrainsk' },
-    { code: 'ar', label: 'Arabisk', rtl: true },
-    { code: 'so', label: 'Somali' },
-    { code: 'pl', label: 'Polsk' },
-    { code: 'ti', label: 'Tigrinja' },
-    { code: 'es', label: 'Spansk' },
-    { code: 'ku', label: 'Kurdisk', rtl: true },
-    { code: 'fa', label: 'Persisk', rtl: true },
-    { code: 'vi', label: 'Vietnamesisk' }
+    { code: 'nb', label: 'Norsk' }, { code: 'en', label: 'Engelsk' }, { code: 'uk', label: 'Ukrainsk' },
+    { code: 'ar', label: 'Arabisk', rtl: true }, { code: 'so', label: 'Somali' }, { code: 'pl', label: 'Polsk' },
+    { code: 'ti', label: 'Tigrinja' }, { code: 'es', label: 'Spansk' }, { code: 'ku', label: 'Kurdisk', rtl: true },
+    { code: 'fa', label: 'Persisk', rtl: true }, { code: 'vi', label: 'Vietnamesisk' }
   ];
 
   let activePopup = null;
@@ -59,30 +54,17 @@
 
   function speakText(word, definition, btnNode) {
     if (!('speechSynthesis' in window)) return;
-    if (window.speechSynthesis.speaking) {
-      stopSpeech();
-      btnNode.textContent = 'LYD';
-      btnNode.setAttribute('aria-pressed', 'false');
-      return;
-    }
-    const textToRead = definition ? `${word}. ${definition}` : word;
-    const utterance = new SpeechSynthesisUtterance(textToRead);
+    const resetBtn = () => {
+      if (btnNode) { btnNode.textContent = 'LYD'; btnNode.setAttribute('aria-pressed', 'false'); }
+    };
+    if (window.speechSynthesis.speaking) { stopSpeech(); resetBtn(); return; }
+    const utterance = new SpeechSynthesisUtterance(definition ? `${word}. ${definition}` : word);
     utterance.lang = 'nb-NO';
     utterance.rate = 0.96;
-
-    const voices = window.speechSynthesis.getVoices();
-    const norwegianVoice = voices.find((v) => /^nb|^no|^nn/i.test(v.lang));
+    const norwegianVoice = window.speechSynthesis.getVoices().find((v) => /^nb|^no|^nn/i.test(v.lang));
     if (norwegianVoice) utterance.voice = norwegianVoice;
-
     btnNode.textContent = 'STOPP';
     btnNode.setAttribute('aria-pressed', 'true');
-
-    const resetBtn = () => {
-      if (btnNode) {
-        btnNode.textContent = 'LYD';
-        btnNode.setAttribute('aria-pressed', 'false');
-      }
-    };
     utterance.onend = resetBtn;
     utterance.onerror = resetBtn;
     window.speechSynthesis.speak(utterance);
@@ -93,21 +75,13 @@
     const vw = window.innerWidth || document.documentElement.clientWidth || 800;
     const vh = window.innerHeight || document.documentElement.clientHeight || 600;
     const rect = anchorRect || { left: vw / 2 - 170, bottom: vh / 3, top: vh / 3 - 20, width: 60 };
-
     const popupRect = popup.getBoundingClientRect();
     const pw = popupRect.width || 350;
     const ph = popupRect.height || 210;
-
-    let left = rect.left + rect.width / 2 - pw / 2;
-    left = Math.max(pad, Math.min(left, vw - pw - pad));
-
+    const left = Math.max(pad, Math.min(rect.left + rect.width / 2 - pw / 2, vw - pw - pad));
     let top = rect.bottom + 10;
-    if (top + ph + pad > vh && rect.top - ph - 10 >= pad) {
-      top = rect.top - ph - 10;
-    } else if (top + ph + pad > vh) {
-      top = Math.max(pad, vh - ph - pad);
-    }
-
+    if (top + ph + pad > vh && rect.top - ph - 10 >= pad) top = rect.top - ph - 10;
+    else if (top + ph + pad > vh) top = Math.max(pad, vh - ph - pad);
     popup.style.left = `${Math.round(left)}px`;
     popup.style.top = `${Math.round(top)}px`;
   }
@@ -150,7 +124,9 @@
     removePopup();
     currentAnchorRect = anchorRect;
 
-    const popup = el('aside', 'voxlex-synonym-popup');
+    const popup = el('aside', 'voxlex-synonym-popup notranslate');
+    popup.setAttribute('translate', 'no');
+    popup.setAttribute('lang', 'nb');
     popup.setAttribute('role', 'dialog');
     popup.setAttribute('aria-label', `Ordforklaring for ${state.word}`);
 
@@ -159,6 +135,17 @@
     const titleGroup = el('div', 'voxlex-title-group');
     const badgeLabel = state.badge || '[ORDBOK]';
     titleGroup.appendChild(el('span', 'voxlex-badge', badgeLabel));
+    const netBadge = el('span', 'voxlex-net-badge', '[LOKAL MODUS]');
+    netBadge.title = LOCAL_MODE_TOOLTIP;
+    netBadge.setAttribute('data-tooltip', LOCAL_MODE_TOOLTIP);
+    netBadge.tabIndex = 0;
+    netBadge.hidden = !state.outsideSchoolNetwork;
+    titleGroup.appendChild(netBadge);
+    if (!state.outsideSchoolNetwork && globalScope.VoxLexLookup && globalScope.VoxLexLookup.requestNetworkStatus) {
+      globalScope.VoxLexLookup.requestNetworkStatus().then((r) => {
+        if (r && r.outsideSchoolNetwork) netBadge.hidden = false;
+      });
+    }
     titleGroup.appendChild(el('strong', 'voxlex-word', state.headword || state.word));
     header.appendChild(titleGroup);
 
@@ -233,7 +220,7 @@
       renderTranslationInto(transContainer, state.word, state.definition || '', nextLang);
     });
 
-    const lookupTarget = (state.parts && state.parts[0]) || state.headword || state.word;
+    const lookupTarget = state.headword || state.word;
     const cleanLinkWord = String(lookupTarget).split('+')[0].trim();
 
     if (isOnlineAndAllowedExternalLinks() && state.allowSnlExpand && !state.encyclopediaText) {
@@ -261,16 +248,21 @@
 
     popup.appendChild(body);
     const footer = el('footer', 'voxlex-footer');
-    footer.appendChild(el('span', 'voxlex-brand', 'VoxLex Lesehjelp'));
-    if (isOnlineAndAllowedExternalLinks()) {
+    const allowLinks = isOnlineAndAllowedExternalLinks();
+    const brand = el(allowLinks ? 'a' : 'span', 'voxlex-brand', 'VoxLex Lesehjelp');
+    if (allowLinks) {
+      brand.href = 'https://voxcuriosa.no/voxlexcompanion/#personvern';
+      brand.target = '_blank';
+      brand.rel = 'noopener noreferrer';
+      brand.title = 'Åpne hjelp og personvern (GDPR)';
+      footer.appendChild(brand);
       const links = el('nav', 'voxlex-links');
       links.setAttribute('aria-label', 'Oppslagskilder');
       const encoded = encodeURIComponent(cleanLinkWord);
       const sources = [
-        { label: '[Ordbøkene]', href: `https://ordbokene.no/bm,nn/search?q=${encoded}` },
+        { label: '[Ordbøkene]', href: `https://ordbokene.no/nob/bm,nn/${encoded}` },
         { label: '[SNL]', href: `https://snl.no/${encoded}` },
-        { label: '[Wikipedia]', href: `https://no.wikipedia.org/wiki/${encoded}` },
-        { label: '[GitHub]', href: 'https://github.com/voxcuriosa/voxlex-companion' }
+        { label: '[Wikipedia]', href: `https://no.wikipedia.org/wiki/${encoded}` }
       ];
       for (const src of sources) {
         const a = el('a', 'voxlex-source-link', src.label);
@@ -280,6 +272,8 @@
         links.appendChild(a);
       }
       footer.appendChild(links);
+    } else {
+      footer.appendChild(brand);
     }
     popup.appendChild(footer);
     document.body.appendChild(popup);

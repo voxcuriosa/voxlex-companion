@@ -12,7 +12,7 @@ const http = require('http');
 const DEFAULT_TELEMARK_CIDRS = ['139.164.0.0/16'];
 const SCHOOL_NETWORK_MESSAGE =
   'Dette ordet finnes ikke i den lokale ordboka. Utvidet søk er kun tilgjengelig når du er koblet til skolens nettverk.';
-const WORD_REGEX = /^[a-zæøåéèêëóòôöäàâüùûß\-]{2,35}$/i;
+const WORD_REGEX = /^[a-zæøåéèêëóòôöäàâüùûß](?:[a-zæøåéèêëóòôöäàâüùûß\-]{0,33}[a-zæøåéèêëóòôöäàâüùûß])$/i;
 const ALLOWED_LANGS = new Set(['nb', 'nn', 'en', 'uk', 'ar', 'so', 'pl', 'ti', 'es', 'ku', 'fa', 'vi']);
 
 function ipToUint32(ip) {
@@ -72,7 +72,7 @@ function extractClientIp(req) {
 function sanitizeWord(raw) {
   if (typeof raw !== 'string') return '';
   const cleaned = raw.trim().toLowerCase();
-  if (!cleaned || cleaned.includes(' ') || !WORD_REGEX.test(cleaned)) {
+  if (!cleaned || cleaned.includes(' ') || cleaned.includes('--') || !WORD_REGEX.test(cleaned)) {
     return '';
   }
   return cleaned;

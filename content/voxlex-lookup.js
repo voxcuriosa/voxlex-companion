@@ -13,7 +13,7 @@
     'ae', 'oe', 'aa'
   ]);
 
-  const WORD_PATTERN = /^[a-zæøåéèêëóòôöäàâüùûß\-]{2,35}$/i;
+  const WORD_PATTERN = /^[a-zæøåéèêëóòôöäàâüùûß](?:[a-zæøåéèêëóòôöäàâüùûß\-]{0,33}[a-zæøåéèêëóòôöäàâüùûß])$/i;
   const bucketCache = new Map();
   let lemmaCache = null;
   let customLoader = null;
@@ -26,9 +26,9 @@
     if (typeof raw !== 'string') return '';
     const trimmed = raw
       .trim()
-      .replace(/^[^a-zA-ZæøåÆØÅéèêóòôäöüß]+|[^a-zA-ZæøåÆØÅéèêóòôäöüß]+$/g, '')
+      .replace(/^[^a-zA-ZæøåÆØÅéèêëóòôöäàâüùûß]+|[^a-zA-ZæøåÆØÅéèêëóòôöäàâüùûß]+$/g, '')
       .toLowerCase();
-    if (!trimmed || trimmed.includes(' ') || !WORD_PATTERN.test(trimmed)) {
+    if (!trimmed || trimmed.includes(' ') || trimmed.includes('--') || !WORD_PATTERN.test(trimmed)) {
       return '';
     }
     return trimmed;
@@ -94,15 +94,19 @@
 
   function generateCandidateStems(word) {
     const suffixes = [
-      'enes', 'ende', 'este', 'ene', 'ens', 'ets', 'ere', 'est',
-      'er', 'et', 'en', 'te', 'de', 'es', 'a', 't', 'e', 's'
+      'ingene', 'ingens', 'ingers', 'ingane', 'ingen', 'inger', 'ingar', 'ings', 'ing',
+      'enes', 'anes', 'ende', 'ande', 'este', 'aste', 'ene', 'ane', 'orne', 'ens', 'ets',
+      'ere', 'are', 'est', 'ast', 'er', 'ar', 'or', 'et', 'en', 'te', 'de', 'es', 'as', 'a', 't', 'e', 's'
     ];
     const candidates = [];
     for (const suf of suffixes) {
       if (word.length > suf.length + 2 && word.endsWith(suf)) {
         const stem = word.slice(0, -suf.length);
-        candidates.push(stem);
-        candidates.push(stem + 'e');
+        if (suf.indexOf('ing') === 0 || suf === 'ende' || suf === 'ande') {
+          candidates.push(stem + 'e', stem, stem + 'a');
+        } else {
+          candidates.push(stem, stem + 'e', stem + 'a');
+        }
         if (stem.length >= 4 && stem[stem.length - 1] === stem[stem.length - 2]) {
           candidates.push(stem.slice(0, -1));
         }
@@ -136,6 +140,10 @@
     return null;
   }
 
+  function primarySense(def) {
+    return String(def || '').replace(/^1\)\s*/, '').replace(/\s*2\)\s*.*$/, '').trim();
+  }
+
   async function splitCompoundWord(word) {
     if (!word || word.length < 6) return null;
 
@@ -160,20 +168,16 @@
         const rightHit = await findBaseEntry(rawRight);
         if (!rightHit) continue;
 
-        const combinedSynonyms = [
-          ...(rightHit.entry.s || []).slice(0, 2),
-          ...(leftHit.s || []).slice(0, 2)
-        ].filter((v, idx, arr) => v && arr.indexOf(v) === idx);
-
         return {
           found: true,
           tier: 1,
           type: 'compound',
           word,
-          headword: `${leftWord} + ${rightHit.headword}`,
+          headword: word,
+          isNynorsk: Boolean(leftHit.n || rightHit.entry.n),
           parts: [leftWord, rightHit.headword],
-          definition: `Sammensatt av «${leftWord}» og «${rightHit.headword}». ${leftHit.d} ${rightHit.entry.d}`,
-          synonyms: combinedSynonyms.slice(0, 4)
+          definition: `Sammensatt av «${leftWord}» og «${rightHit.headword}». «${leftWord}»: ${primarySense(leftHit.d)} «${rightHit.headword}»: ${primarySense(rightHit.entry.d)}`,
+          synonyms: [leftWord, rightHit.headword]
         };
       }
     }
@@ -194,6 +198,7 @@
         type: baseHit.exact ? 'direct' : 'normalized',
         word,
         headword: baseHit.headword,
+        isNynorsk: Boolean(baseHit.entry.n),
         definition: baseHit.entry.d,
         synonyms: Array.isArray(baseHit.entry.s) ? baseHit.entry.s : []
       };
@@ -232,6 +237,8 @@
     lookupLocal,
     splitCompoundWord,
     setCustomJsonLoader,
+    requestNetworkStatus: () =>
+      sendMessageAsync({ type: 'VOXLEX_CHECK_NETWORK' }),
     requestExtendedLookup: (word, lang) =>
       sendMessageAsync({ type: 'VOXLEX_LOOKUP_EXTENDED', word, lang }),
     requestEncyclopedia: (word) =>

@@ -4,6 +4,10 @@
       "d": "Noe som er tenkt eller teoretisk, og som man ikke kan ta og føle på fysisk. Motsatt av konkret.",
       "s": ["teoretisk", "uhåndgripelig", "begrepsmessig", "idébasert"]
     },
+    "kokskull": {
+      "d": "Fettrike steinkull som egner seg til å lage koks (rent, varmt brensel) til jern- og stålsmelting.",
+      "s": ["steinkull", "koks", "brensel", "industrikull"]
+    },
     "adferd": {
       "d": "Måten en person, gruppe eller et dyr oppfører seg og handler på i ulike situasjoner.",
       "s": ["oppførsel", "handlemåte", "væremåte", "fremferd"]

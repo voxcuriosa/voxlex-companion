@@ -7,13 +7,16 @@
  */
 
 const BACKEND_URL = 'https://voxlex-lookup-180422997316.europe-west1.run.app';
-const WORD_REGEX = /^[a-zæøåéèêëóòôöअäàâüùûß\-]{2,35}$/i;
+const WORD_REGEX = /^[a-zæøåéèêëóòôöäàâüùûß](?:[a-zæøåéèêëóòôöäàâüùûß\-]{0,33}[a-zæøåéèêëóòôöäàâüùûß])$/i;
 const ALLOWED_LANGS = new Set(['nb', 'nn', 'en', 'uk', 'ar', 'so', 'pl', 'ti', 'es', 'ku', 'fa', 'vi']);
 
 function sanitizeWord(raw) {
   if (typeof raw !== 'string') return '';
-  const cleaned = raw.trim().toLowerCase().replace(/^[^a-zæøå]+|[^a-zæøå]+$/gi, '');
-  if (!cleaned || cleaned.includes(' ') || !WORD_REGEX.test(cleaned)) {
+  const cleaned = raw
+    .trim()
+    .toLowerCase()
+    .replace(/^[^a-zæøåéèêëóòôöäàâüùûß]+|[^a-zæøåéèêëóòôöäàâüùûß]+$/gi, '');
+  if (!cleaned || cleaned.includes(' ') || cleaned.includes('--') || !WORD_REGEX.test(cleaned)) {
     return '';
   }
   return cleaned;
@@ -63,6 +66,24 @@ async function anonymousFetchJson(url, options = {}, timeoutMs = 3500) {
   }
 }
 
+let cachedOutsideSchoolNet = null;
+let cachedNetCheckedAt = 0;
+
+async function checkSchoolNetworkStatus() {
+  const now = Date.now();
+  if (cachedOutsideSchoolNet !== null && now - cachedNetCheckedAt < 300000) {
+    return cachedOutsideSchoolNet;
+  }
+  const res = await anonymousFetchJson(BACKEND_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: '{}'
+  }, 2500);
+  cachedOutsideSchoolNet = res.status === 403 || res.status === 0;
+  cachedNetCheckedAt = now;
+  return cachedOutsideSchoolNet;
+}
+
 async function fetchTier2Backend(word, lang) {
   const payload = lang && lang !== 'nb' ? { word, lang } : { word };
   const res = await anonymousFetchJson(BACKEND_URL, {
@@ -72,9 +93,13 @@ async function fetchTier2Backend(word, lang) {
   }, 6000);
 
   if (res.status === 403) {
+    cachedOutsideSchoolNet = true;
+    cachedNetCheckedAt = Date.now();
     return { ok: false, outsideSchoolNetwork: true };
   }
   if (res.ok && res.data && res.data.definition) {
+    cachedOutsideSchoolNet = false;
+    cachedNetCheckedAt = Date.now();
     return {
       ok: true,
       outsideSchoolNetwork: false,
@@ -177,6 +202,12 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   (async () => {
     if (!message || typeof message.type !== 'string') {
       sendResponse({ ok: false });
+      return;
+    }
+
+    if (message.type === 'VOXLEX_CHECK_NETWORK') {
+      const outsideSchoolNetwork = await checkSchoolNetworkStatus();
+      sendResponse({ ok: true, outsideSchoolNetwork });
       return;
     }
 
